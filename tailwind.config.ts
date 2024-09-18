@@ -8,9 +8,17 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        indieFlower: ["var(--font-indie-flower)", "sans-serif"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        lckyred: "var(--lcky-red)",
+
+        font: {
+          base: "var(--text-base)",
+        },
       },
     },
   },
