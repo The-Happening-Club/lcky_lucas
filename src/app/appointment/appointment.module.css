@@ -1,0 +1,29 @@
+/* Slide Left */
+.slide_left {
+  transform: translateX(0%);
+}
+
+.slide_left_enter {
+  transform: translateX(100%);
+  transition: transform 0.5s ease;
+}
+
+.slide_left_exit {
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+/* Slide Right */
+.slide_right {
+  transform: translateX(0%);
+}
+
+.slide_right_enter {
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.slide_right_exit {
+  transform: translateX(100%);
+  transition: transform 0.5s ease;
+}

@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         indieFlower: ["var(--font-indie-flower)", "sans-serif"],
+        geist: ["var(--font-geist-sans)", "sans-serif"],
       },
       colors: {
         background: "var(--background)",
