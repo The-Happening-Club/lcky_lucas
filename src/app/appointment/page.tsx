@@ -103,16 +103,15 @@ export default function Appointment() {
       dispatch({ type: "NEXT_STEP" });
     } else if (buttonType === "backward") {
       dispatch({ type: "PREV_STEP" });
-    } else if (buttonType == "send") {
+    } else if (buttonType === "send") {
       handleSubmit();
     }
+
+    const handleInput = () => {};
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="grid grid-cols-1 items-center h-screen bg-gradient-to-t from-[#000000] to-[#2A2A2A] px-4"
-    >
+    <main className="grid grid-cols-1 items-center h-screen bg-gradient-to-t from-[#000000] to-[#2A2A2A] px-4">
       <div className="flex justify-center items-center w-full h-fit p-4">
         <div className="flex h-48 w-48 bg-black rounded-full aspect-square overflow-hidden">
           <Image
@@ -129,14 +128,27 @@ export default function Appointment() {
         {currentStep.text ? (
           <ClassedParagraph>{currentStep.text}</ClassedParagraph>
         ) : null}
+        {currentStep.inputs.map((input, index) => (
+          <input
+            key={index}
+            type={input.type}
+            required={input.required}
+            className="bg-stone-950 border-slate-600 text-slate-300 border drop-shadow-xl shadow-inner w-96 p-2 rounded-full text-center text-4xl uppercase"
+          />
+        ))}
       </ClassedContentContainer>
 
       <ClassedButtonContainer>
         {currentStep.buttons.map((button, index) => (
           <button
             key={index}
-            className="py-2 px-4 text-lckyred border-lckyred border rounded-full max-w-60 min-w-48"
+            className={`py-2 px-4 ${
+              button.disabled
+                ? "text-gray-600 border-gray-600"
+                : "text-lckyred border-lckyred"
+            } border rounded-full max-w-60 min-w-48`}
             onClick={() => handleButtonClick(button.type)}
+            disabled={button.disabled ? true : false}
           >
             {button.text}
           </button>
@@ -153,6 +165,6 @@ export default function Appointment() {
           ></div>
         ))}
       </ClassedProgressContainer>
-    </form>
+    </main>
   );
 }
