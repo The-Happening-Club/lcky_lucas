@@ -2,15 +2,16 @@ import { NextRequest, NextResponse } from "next/server";
 const nodemailer = require("nodemailer");
 
 export async function POST(request: NextRequest) {
-  const username = "";
-  const password = "";
-  const myEmail = "";
+  const username = "Test";
+  // const password = "";
+  // const myEmail = "";
   // const formData = await request.formData();
   // const name = formData.get("name");
   // const email = formData.get("email");
   // const message = formData.get("message");
 
   //node mailer object
+  console.log(request);
 
   const transporter = nodemailer.createTransport({
     host: "smtp.ionos.de",
@@ -36,6 +37,7 @@ export async function POST(request: NextRequest) {
         <p>Die Kund:in möchte gerne ein realistische Tatto auf der Brust</p>
         `,
     });
+    console.log(mail);
     return NextResponse.json({ message: "Mail erfolgreich versand!" });
   } catch (error) {
     console.log(error);

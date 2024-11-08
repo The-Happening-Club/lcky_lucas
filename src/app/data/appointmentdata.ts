@@ -2,13 +2,12 @@ export const appointmentData = [
   {
     imageUrl: "test.jpg",
     header: "Hey",
-    text: "Schön, dass du hier bist. Lass uns gemeinsam die Schritte durchgehen, damit wir deinen Termin für dein neues Tattoo planen können.",
+    text: "Schön, dass du hier bist. Lass uns kurz gemeinsam die Schritte durchgehen, damit wir deinen Tattoo planen können.",
     buttons: [{ type: "forward", text: "Los gehts", style: "prime" }],
   },
   {
     imageUrl: "lukas.jpg",
     header: "Wie heißt du?",
-    text: "Schön, dass du hier bist. Lass uns gemeinsam die Schritte durchgehen, damit wir deinen Termin für dein neues Tattoo planen können.",
     buttons: [
       { type: "backward", text: "zurück", style: "prime" },
       { type: "forward", text: "weiter", style: "prime" },
@@ -18,6 +17,15 @@ export const appointmentData = [
     imageUrl: "presentation.jpg",
     header: "Hi {{Name}}!",
     text: "Ich bin Lukas und ich freue mich darauf, gemeinsam mit dir ein passendes Design zu entwickeln.",
+    buttons: [
+      { type: "backward", text: "zurück", style: "prime" },
+      { type: "forward", text: "Las uns loslegen!", style: "prime" },
+    ],
+  },
+  {
+    imageUrl: "presentation.jpg",
+    header: "Hi {{Name}}!",
+    text: "Hast du schon eine genaue Idee, was du dir wünschst, oder möchtest du vorab eine Beratung, um deine Vorstellungen zu besprechen?.",
     buttons: [
       { type: "backward", text: "zurück", style: "prime" },
       { type: "forward", text: "weiter", style: "prime" },

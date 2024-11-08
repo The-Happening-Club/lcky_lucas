@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useReducer } from "react";
+import React, { useReducer } from "react";
 import Image from "next/image";
 import classed from "@classed/react";
 import { appointmentData } from "../data/appointmentdata";
@@ -9,6 +9,20 @@ type AppointmentState = {
   step: number;
   data: {
     name?: string;
+    surename?: string;
+    consulting?: boolean;
+    style?: {
+      width: number;
+      heigth: number;
+      type: string;
+      color: string;
+      position: string;
+      posImg: string;
+      refImg: string;
+    };
+    ageCheck?: boolean;
+    parentCheck?: boolean;
+    date?: string;
     email?: string;
   };
 };
@@ -16,6 +30,7 @@ type AppointmentState = {
 type Action =
   | { type: "NEXT_STEP" }
   | { type: "PREV_STEP" }
+  | { type: "SKIP_STEPS"; skip: number }
   | { type: "SET_FIELD"; field: string; value: string };
 
 function appointmentReducer(
@@ -27,6 +42,8 @@ function appointmentReducer(
       return { ...state, step: state.step + 1 };
     case "PREV_STEP":
       return { ...state, step: Math.max(state.step - 1, 0) };
+    case "SKIP_STEPS":
+      return { ...state, step: state.step + action.skip };
     case "SET_FIELD":
       return {
         ...state,
@@ -59,9 +76,6 @@ export default function Appointment() {
     step: 0,
     data: {},
   });
-  const [slideDirection, setSlideDirection] = useState<"left" | "right">(
-    "left"
-  );
 
   const currentStep = appointmentData[state.step];
 
@@ -95,12 +109,11 @@ export default function Appointment() {
   };
 
   return (
-    <main className="grid grid-cols-1 items-center h-screen bg-gradient-to-t from-[#000000] to-[#2A2A2A] px-4">
-      <div
-        className={`flex justify-center items-center transition-transform duration-500 ${
-          slideDirection === "left" ? "slide-left" : "slide-right"
-        }`}
-      >
+    <form
+      onSubmit={handleSubmit}
+      className="grid grid-cols-1 items-center h-screen bg-gradient-to-t from-[#000000] to-[#2A2A2A] px-4"
+    >
+      <div className="flex justify-center items-center w-full h-fit p-4">
         <div className="flex h-48 w-48 bg-black rounded-full aspect-square overflow-hidden">
           <Image
             src={`/${currentStep.imageUrl}`}
@@ -140,6 +153,6 @@ export default function Appointment() {
           ></div>
         ))}
       </ClassedProgressContainer>
-    </main>
+    </form>
   );
 }
