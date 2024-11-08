@@ -109,7 +109,7 @@ export default function Appointment() {
   };
 
   return (
-    <main className="grid grid-cols-1 items-center h-screen bg-gradient-to-t from-[#000000] to-[#2A2A2A] px-4">
+    <main className="grid grid-cols-1 items-center h-screen w-screen bg-gradient-to-t from-[#000000] to-[#2A2A2A] px-4">
       <div className="flex justify-center items-center w-full h-fit p-4">
         <div className="flex h-48 w-48 bg-black rounded-full aspect-square overflow-hidden">
           <Image
