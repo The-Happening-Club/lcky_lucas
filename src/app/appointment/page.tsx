@@ -106,8 +106,6 @@ export default function Appointment() {
     } else if (buttonType === "send") {
       handleSubmit();
     }
-
-    const handleInput = () => {};
   };
 
   return (
@@ -134,6 +132,13 @@ export default function Appointment() {
             type={input.type}
             required={input.required}
             className="bg-stone-950 border-slate-600 text-slate-300 border drop-shadow-xl shadow-inner w-96 p-2 rounded-full text-center text-4xl uppercase"
+            onChange={(e) => {
+              dispatch({
+                type: "SET_FIELD",
+                field: "name",
+                value: e.target.value,
+              });
+            }}
           />
         ))}
       </ClassedContentContainer>
@@ -148,7 +153,6 @@ export default function Appointment() {
                 : "text-lckyred border-lckyred"
             } border rounded-full max-w-60 min-w-48`}
             onClick={() => handleButtonClick(button.type)}
-            disabled={button.disabled ? true : false}
           >
             {button.text}
           </button>

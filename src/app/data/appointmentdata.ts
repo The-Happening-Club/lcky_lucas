@@ -36,10 +36,10 @@ export const appointmentData: appointmentType[] = [
       { type: "forward", text: "weiter", style: "prime", disabled: true },
     ],
     inputs: [
-      { type: "text", placeholder: "Vorname", name: "name", required: true },
+      { type: "text", placeholder: "Vorname*", name: "name", required: true },
       {
         type: "text",
-        placeholder: "Nachname",
+        placeholder: "Nachname*",
         name: "nachname",
         required: true,
       },
